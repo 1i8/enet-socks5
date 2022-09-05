@@ -3,4 +3,4 @@ enet socks5 base made by olli, modified to be non-blocking and changed some stuf
 
 enetclient for gt made by teocodes
 
-note: eneclient proxy stuff messy 😬
+note: enetclient proxy stuff messy 😬
