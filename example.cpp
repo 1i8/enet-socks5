@@ -1,8 +1,6 @@
 #include "enetclient.hpp"
 
 int main() {
-	ENetClient::OneTimeInit(); // remember to call this, otherwise enet wont work
-
 	ENetClient client;
 
 	client.proxy_info = {

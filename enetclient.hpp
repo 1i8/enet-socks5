@@ -192,11 +192,6 @@ private:
 
 class ENetClient {
 public:
-	static void OneTimeInit() {
-		enet::enet_initialize();
-		std::atexit(enet::enet_deinitialize);
-	}
-
 	bool Connect(const std::string& server_ip, uint16_t server_port, bool using_proxy, bool type2) noexcept {
 		if (host != nullptr) {
 			Disconnect();
@@ -303,7 +298,14 @@ public:
 		std::string password;
 	} proxy_info = {};
 
-protected:
+private:
 	enet::ENetHost* host = nullptr;
 	enet::ENetPeer* peer = nullptr;
+
+	static inline bool initialized = [] {
+		if (enet::enet_initialize() != 0)
+			throw std::exception("Error initializing ENet!");
+		std::atexit(enet::enet_deinitialize);
+		return true;
+	}();
 };
