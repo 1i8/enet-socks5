@@ -1,5 +1,6 @@
 #pragma once
 
+#include <sstream>
 #include <string>
 #include <utility>
 
@@ -162,8 +163,7 @@ struct GamePacket {
 	std::string Print() const noexcept {
 		std::stringstream result;
 
-		result << "<--Game Packet-->\ntype: "
-			<< type << '|' << static_cast<size_t>(type) << '\n';
+		result << "<--Game Packet-->\ntype: " << type << '\n';
 
 		auto PrintMember = [&](auto member, const std::string& name) {
 			if (member != decltype(member){}) {
