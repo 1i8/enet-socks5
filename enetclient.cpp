@@ -18,6 +18,8 @@ ENetClient::ENetClient() :
 	}
 }
 
+ENetClient::~ENetClient() { ResetProxy(); }
+
 void ENetClient::SendPacketRaw(const NetMessageType type, const uint8_t* data, const size_t data_size) const {
 	if (host != nullptr && peer != nullptr) {
 		ENetPacket* packet = enet_packet_create(0, data_size + 5, ENET_PACKET_FLAG_RELIABLE);
