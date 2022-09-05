@@ -388,12 +388,12 @@ extern "C" {
 	} ENetSocks5ReplyType;
 
 	typedef struct _ENetSocks5Authentication {
-		const char* username;
-		const char* password;
+		char* username;
+		char* password;
 	} ENetSocks5Authentication;
 
 	typedef struct _ENetSocks5Info {
-		const char* ip;
+		char* ip;
 		enet_uint16 port;
 		ENetSocks5Authentication auth;
 	} ENetSocks5Info;
