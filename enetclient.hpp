@@ -134,17 +134,7 @@ enum class NetMessage : int32_t {
 	ClientLogResponse,
 };
 
-//non standard :(
-#ifdef _MSC_VER
-#pragma pack(push, 1)
-#define PACKED
-#elif defined(__GNUC__) || defined(__clang__)
-#define PACKED __attribute__ ((packed))
-#else
-#define PACKED
-#endif
-
-struct GamePacket {
+struct alignas(4) GamePacket {
 	PacketType type; //0
 	int8_t objtype; //1
 	int8_t count1; //2
@@ -198,13 +188,7 @@ private:
 	friend std::ostream& operator<<(std::ostream& os, const GamePacket& game_packet) noexcept {
 		return os << game_packet.Print();
 	}
-} PACKED;
-
-
-#undef PACKED
-#ifdef _MSC_VER
-#pragma pack(pop)
-#endif
+};
 
 class ENetClient {
 public:
