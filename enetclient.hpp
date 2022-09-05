@@ -7,6 +7,7 @@
 class ENetClient {
 public:
 	ENetClient();
+	~ENetClient();
 
 	void SendPacketRaw(const NetMessageType type, const uint8_t* data, const size_t data_size) const;
 	void SendGenericText(const std::string& packet) const;
