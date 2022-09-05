@@ -3518,14 +3518,14 @@ extern "C" {
 			} break;
 
 			case ENET_SOCKS5_STATE_RECEIVE_AUTH_RESPONSE_USERNAME: {
-				ENetSocks5AuthResponse auth_res_username;
-				memset(&auth_res_username, 0, sizeof(auth_res_username));
+				ENetSocks5AuthResponse authResUsername;
+				memset(&authResUsername, 0, sizeof(authResUsername));
 
-				buffer.data = &auth_res_username;
-				buffer.dataLength = sizeof(auth_res_username);
+				buffer.data = &authResUsername;
+				buffer.dataLength = sizeof(authResUsername);
 
 				if (enet_socket_receive(host->proxySocket, &host->proxyAddress, &buffer, 1) > 0) {
-					if (auth_res_username.version != 1 || auth_res_username.authMethod != ENET_SOCKS5_REPLY_SUCCEEDED) {
+					if (authResUsername.version != 1 || authResUsername.authMethod != ENET_SOCKS5_REPLY_SUCCEEDED) {
 						host->proxyState = ENET_SOCKS5_STATE_CONNECTION_FAILED;
 					}
 					else {

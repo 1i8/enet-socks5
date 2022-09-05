@@ -1,6 +1,4 @@
 # enet-socks5
-enet socks5 base made by olli, modified to be non-blocking and changed some stuff by teocodes
+enet socks5 and enet client for growtopia made by teo & olli
 
-enetclient for gt made by teocodes
-
-note: enetclient proxy stuff messy 😬
+check example.cpp to see how to use
